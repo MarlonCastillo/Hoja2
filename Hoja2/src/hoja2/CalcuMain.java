@@ -1,21 +1,21 @@
 import java.util.Scanner;
 
-public class Calcu {
+public class CalcuMain {
     public static void main(String[] args) {
-    	Calculadora <Vector> calcu = new Calcu <Vector>;
 
     	String linea;
-
-    	System.out.println("Ingrese su operacion en sistema Postfix: ") ;
-			linea=lector.nextLine();
-			calcu.setString(linea);
-	/*
-	Calculadora miCalcu = new Calcu();
+        Calculadora miCalcu = new Calcu();
         System.out.println("BIENVENIDO A NUESTRA CALCULADORA POSTFIX.\nRecorriendo archivo de texto, por favor espere a que se procesen los datos...");
-        miCalcu.setString("1 2 + 4 * 3 +");
+        Scanner lector= new Scanner(System.in);
+
+        linea=lector.nextLine();
+
+        miCalcu.setString(linea);
         miCalcu.meterVector();
         miCalcu.calcularVector();
-        System.out.println(miCalcu.getResultado());
-	*/
+        System.out.println("El resultado de la operacion es: "+miCalcu.getResultado());
     }
 }
+
+
+//"1 2 + 4 * 3 +"
