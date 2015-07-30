@@ -30,7 +30,7 @@ public class Calcu implements Calculadora
 				a=a;
 			}else if(b.equals("+") || b.equals("-") || b.equals("*") || b.equals("/"))
 			{
-				if(a != 0)
+				if(a > 1)
 				{
 					operadores.push(b);
 				}
@@ -41,7 +41,7 @@ public class Calcu implements Calculadora
 				}catch(Exception e)
 				{
 					devolver = false;
-				}
+				}				
 			}
         }
 		
@@ -70,8 +70,7 @@ public class Calcu implements Calculadora
 				}else
 				{
 					num2 = Resultado;
-				}
-				
+				}				
 				operador = operadores.pop();
 				switch(operador)
 				{
@@ -95,6 +94,7 @@ public class Calcu implements Calculadora
 						Resultado = num1 * num2;
 						break;
 					default:
+						devolver = false;
 						break;
 				}
 			}
