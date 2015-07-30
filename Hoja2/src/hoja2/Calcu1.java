@@ -2,9 +2,9 @@ public class Calcu implements Calculadora
 {
     private String linea, resultado, operador;
     private int Resultado, num1, num2, rpivote;
+    private boolean devolver;
     private Stack<Integer> operandos = new StackVector<Integer>();
     private Stack<String> operadores = new StackVector<String>();
-	private Stack<Integer> operandos2 = new StackVector<Integer>();
     
     public void setString(String linea)
 	{
@@ -12,55 +12,10 @@ public class Calcu implements Calculadora
     }
 	
     public void meterVector()
-	{
-		Resultado = 0;
-		int d = operadores.size();
-		for(int b = operadores.size(); b>0; b--)
+	{		
+		for (int a = operandos.size(); a>0; a--)
 		{
-			num1 = operandos2.pop();
-			if(b == d)
-			{
-				num2 = operandos2.pop();
-			}else
-			{
-				num2 = Resultado;
-			}
-			
-			operador = operadores.pop();
-			switch(operador)
-			{
-				case "+":
-					Resultado = num2 + num1;
-					break;
-				case "-":
-					Resultado = num2 - num1;
-					break;
-				case "/":
-					if (num1 == 0)
-					{
-						System.out.println("Division en 0 es indeterminado.");
-					}else
-					{
-						Resultado = num2 / num1;
-					}
-					break;
-				case "*":
-					Resultado = num2 * num1;
-					break;
-				default:
-					break;
-			}
-		}
-    }
-	
-    public boolean calcularVector()
-	{
-		boolean devolver = false;
-		int c = 0;
-		int d = 0;
-		for (int a = operandos2.size(); a>0; a--)
-		{
-			operandos2.pop();
+			operandos.pop();
 		}
 		for (int a = operadores.size(); a>0; a--)
 		{
@@ -75,33 +30,74 @@ public class Calcu implements Calculadora
 				a=a;
 			}else if(b.equals("+") || b.equals("-") || b.equals("*") || b.equals("/"))
 			{
-				operadores.push(b);
+				if(a != 0)
+				{
+					operadores.push(b);
+				}
 			}else
 			{
 				try{
 					operandos.push(Integer.parseInt(b));
 				}catch(Exception e)
 				{
-					devolver = true;
+					devolver = false;
 				}
 			}
         }
-		for (int a=operandos.size();a>0;a--)
-		{
-			operandos2.push(operandos.pop());
-		}
-		c = operadores.size() + 1;
-		d = operandos2.size();
+		
+		int c = operadores.size() + 1;
+		int d = operandos.size();
 		
 		if (c == d)
 		{
-			devolver = false;
-		}else{
 			devolver = true;
+		}else {
+			devolver = false;
 		}
-		if(devolver)
-		{
-			System.out.println("Ha ingresado mal el formato POSTFIX, pruebe otra vez:");
+    }
+	
+    public boolean calcularVector()
+	{
+		if(devolver){
+			Resultado = 0;
+			int d = operadores.size();
+			for(int b = operadores.size(); b>0; b--)
+			{
+				num1 = operandos.pop();
+				if(b == d)
+				{
+					num2 = operandos.pop();
+				}else
+				{
+					num2 = Resultado;
+				}
+				
+				operador = operadores.pop();
+				switch(operador)
+				{
+					case "+":
+						Resultado = num1 + num2;
+						break;
+					case "-":
+						Resultado = num1 - num2;
+						break;
+					case "/":
+						if (num1 == 0)
+						{
+							System.out.println("Division en 0 es indeterminada.");
+							Resultado = 0;
+						}else
+						{
+							Resultado = num2 / num1;
+						}
+						break;
+					case "*":
+						Resultado = num1 * num2;
+						break;
+					default:
+						break;
+				}
+			}
 		}
 		return devolver;
     }
