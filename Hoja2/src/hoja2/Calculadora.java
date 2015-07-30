@@ -1,15 +1,11 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package hoja2;
+Carlos Javier Lima Cordón, 14373
+Marlon Josué Castillo Martinez, 14427
+Sebastian Castillo, 14102
+Maria Jose Lopez, 14056
+*/
 
-/**
- *
- * @author Sebastian
- */
-public interface Calculadora {
+public interface Calculadora { //Clase padre que contiene los métodos abstractos de la calculadora.
     
     public void setString(String linea);
     
