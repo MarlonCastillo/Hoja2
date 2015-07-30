@@ -1,4 +1,11 @@
-public interface Stack<E> 
+/*
+Carlos Javier Lima Cordón, 14373
+Marlon Josué Castillo Martinez, 14427
+Sebastian Castillo, 14102
+Maria Jose Lopez, 14056
+*/
+
+public interface Stack<E> //Clase padre que contiene los métodos abstractos de un stack
 {
 
    public void push(E item);
