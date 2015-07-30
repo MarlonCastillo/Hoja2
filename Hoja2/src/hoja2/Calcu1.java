@@ -12,7 +12,8 @@ public class Calcu implements Calculadora
     }
 	
     public void meterVector()
-	{		
+	{
+		int f = 0;
 		for (int a = operandos.size(); a>0; a--)
 		{
 			operandos.pop();
@@ -33,9 +34,13 @@ public class Calcu implements Calculadora
 				if(a > 1)
 				{
 					operadores.push(b);
-				}
+				}else{ f = 1; }
 			}else
 			{
+				if(a == linea.length())
+				{
+					f = 1;
+				}
 				try{
 					operandos.push(Integer.parseInt(b));
 				}catch(Exception e)
@@ -48,7 +53,7 @@ public class Calcu implements Calculadora
 		int c = operadores.size() + 1;
 		int d = operandos.size();
 		
-		if (c == d)
+		if (c == d && f == 0)
 		{
 			devolver = true;
 		}else {
