@@ -1,4 +1,13 @@
-public class Calcu implements Calculadora
+
+/*
+Carlos Javier Lima Cordón, 14373
+Marlon Josué Castillo Martinez, 14427
+Sebastian Castillo, 14102
+Maria Jose Lopez, 14056
+*/
+
+
+public class Calcu implements Calculadora //Clase Calcu (hija), que se implementa de la clase Calculadora (padre)
 {
     private String linea, resultado, operador;
     private int Resultado, num1, num2, rpivote;
@@ -6,12 +15,12 @@ public class Calcu implements Calculadora
     private Stack<Integer> operandos = new StackVector<Integer>();
     private Stack<String> operadores = new StackVector<String>();
     
-    public void setString(String linea)
+    public void setString(String linea) //se ingresa lo que se lee del archivo de texto al objeto de tipo calcu.
 	{
         this.linea=linea;
     }
 	
-    public void meterVector()
+    public void meterVector() //Metodo que sirve para meter los operandos y operadores a sus respectivos vectores.
 	{
 		int f = 0;
 		for (int a = operandos.size(); a>0; a--)
@@ -61,7 +70,7 @@ public class Calcu implements Calculadora
 		}
     }
 	
-    public boolean calcularVector()
+    public boolean calcularVector() //Metodo que sirve para calcular la operacion que se pide en el archivo, y devuelve un true si lo que se lee está bien, y false si es lo contrario
 	{
 		if(devolver){
 			Resultado = 0;
@@ -107,7 +116,7 @@ public class Calcu implements Calculadora
 		return devolver;
     }
 
-    public int getResultado()
+    public int getResultado() //Metodo que devuelve el resultado de la operación
 	{
 		return Resultado;
     }
