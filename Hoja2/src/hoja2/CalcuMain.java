@@ -1,3 +1,12 @@
+/*
+Carlos Javier Lima Cordón, 14373
+Marlon Josué Castillo Martinez, 14427
+Sebastian Castillo, 14102
+Maria Jose Lopez, 14056
+
+Clase principal que se encarga de la interfaz al usuario y de leer las operaciones en el archivo de texto.
+*/
+
 import java.io.FileReader;
 import java.io.BufferedReader;
 import java.io.IOException;
